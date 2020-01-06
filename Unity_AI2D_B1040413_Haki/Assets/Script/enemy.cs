@@ -5,7 +5,7 @@ public class enemy : MonoBehaviour
     [Header("速度")]
     public float speed = 5f;
     [Header("傷害")]
-    public int damage = 50;
+    public int damage = 20;
 
     private Rigidbody2D r2d;
     public Transform checkpoint;
@@ -36,8 +36,6 @@ public class enemy : MonoBehaviour
         if (collision.gameObject.tag == "player")
         {
             collision.gameObject.GetComponent<player>().Damage(damage);
-
-            print("123");
         }
     }
 
