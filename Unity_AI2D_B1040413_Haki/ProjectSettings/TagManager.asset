@@ -7,6 +7,7 @@ TagManager:
   - enemy
   - player
   - food
+  - npc
   layers:
   - Default
   - TransparentFX
