@@ -28,6 +28,8 @@ public class NPC : MonoBehaviour
 
     public static NPC food;
 
+    public GameObject END;
+
     private void Start()
     {
         food = this;
@@ -54,7 +56,12 @@ public class NPC : MonoBehaviour
         objcan.SetActive(true);
         StopAllCoroutines();
 
-        if (count_player >= finish) _state = state.complete;
+        if (count_player >= finish)
+        {
+            _state = state.complete;
+
+            Invoke("Finish", 2f);
+        } 
 
         switch (_state)
         {
@@ -89,5 +96,12 @@ public class NPC : MonoBehaviour
     {
         StopAllCoroutines();
         objcan.SetActive(false);
+    }
+
+    void Finish()
+    {
+        END.SetActive(true);
+
+        Destroy(player.play);
     }
 }

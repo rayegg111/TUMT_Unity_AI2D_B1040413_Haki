@@ -9,17 +9,18 @@ public class player : MonoBehaviour
     public float jump = 2500;
     public bool pass = false;
     public bool isGround = false;
-    public float hp = 100;
 
     private Rigidbody2D r2d;
     private Transform tra;
     public Animator ani;
-
-
+    [Header("血量")]
+    public float hp = 100;
     public Image hpBar;
     private float maxHP;
 
     public GameObject END;
+
+    public static player play;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class player : MonoBehaviour
         tra = GetComponent<Transform>();
 
         maxHP = hp;
+        play = this;
     }
 
     private void Update()
@@ -62,6 +64,7 @@ public class player : MonoBehaviour
     /// </summary>
     void Walk()
     {
+        ani.SetBool("walk", Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0);
         r2d.AddForce(new Vector2(speed * (Input.GetAxis("Horizontal")), 0));
     }
     /// <summary>

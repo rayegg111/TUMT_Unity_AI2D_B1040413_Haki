@@ -21231,6 +21231,7 @@ MonoBehaviour:
   finish: 4
   objcan: {fileID: 1267482573}
   textSay: {fileID: 687095078}
+  END: {fileID: 1100452382}
 --- !u!1 &1748384550
 GameObject:
   m_ObjectHideFlags: 0
